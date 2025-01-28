@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block content %}
+    {% for post in posts %}
+    
+        {{ post.content }}
+
+        {% for message in messages %}
+            {% if message.replies.id == post.id %}
+            <p style="padding-left: 20px;">{{ message.content }}</p>
+
+            {% endif %}
+
+        {% endfor %}
+    <hr>
+    {% endfor %}
+{% endblock %}
