@@ -16,8 +16,13 @@ class Message(models.Model):
 
 
 class CustomUser(AbstractUser):
+    username = models.CharField(max_length=25, unique=True, blank=False)
     tag = models.SlugField(max_length=25, unique=True, blank=False)
     created_at = models.DateTimeField(auto_now_add=True)
+
+    first_name = None
+    last_name = None
+
 
     def save(self, *args, **kwargs): 
         if not self.tag: 

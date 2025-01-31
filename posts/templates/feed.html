@@ -5,16 +5,18 @@
 
 {% block content %}
     {% for post in posts %}
-    
-        {{ post.content }}
 
-        {% for message in messages %}
+        @{{ post.user }}
+        <a href="{% url 'post-view' post.id %}">{{ post.content }}</a>
+
+
+        <!-- {% for message in messages %}
             {% if message.replies.id == post.id %}
-            <p style="padding-left: 20px;">{{ message.content }}</p>
+            <p style="padding-left: 20px;">@{{ message.user }} {{ message.content }}</p>
 
             {% endif %}
 
-        {% endfor %}
+        {% endfor %} -->
     <hr>
     {% endfor %}
 {% endblock %}
